@@ -1,0 +1,38 @@
+{% load static %}
+{% load photos %}
+{% static "WEB_RESTO/photos/" as photosUrl %}
+
+{% include "./entete.html" %}
+<h1>Liste des restaurants</h1>
+{% for resto in lesRestos %}
+    <div class="card">
+        <div class="photoCard">
+            <img src="{{ photosUrl }}{% getPhotoByIdR resto.idR lesPhotos  %}/">
+        </div>
+        <div class="descrCard">
+            <a href="/WEB_RESTO/Resto/Detail/{{ resto.idR }}">{{ resto.nomR  }}</a>
+            <br />
+            {% if resto.numAdrR != none %} {{ resto.numAdrR  }} {% endif %}
+            {{ resto.voieAdrR }}
+            <br />
+            {{ resto.cpR }}
+            {{ resto.villeR }}
+        </div>
+        <div class="tagCard">
+            <ul id="tagFood">
+                <?php
+                for ($j = 0; $j < count($typecuisine); $j++) {
+                    if($typecuisine[$j]['idR'] == $i+1){
+                        echo(" <li class='tag'><span class='tag'>#</span>" . $typecuisine[$j]['libelleTC'] . "</li>");
+                    }
+                }
+                ?>
+            </ul>
+        </div>
+    </div>
+
+    <?php
+}
+?>
+{% endfor %}
+{% include "./pied.html" %}

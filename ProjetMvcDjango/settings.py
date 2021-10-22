@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'WEB_RESTO.apps.WebRestoConfig',
+    'WEB_RESTO.templatetags.photos',
 ]
 
 MIDDLEWARE = [
