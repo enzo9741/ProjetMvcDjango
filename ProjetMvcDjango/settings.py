@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'ProjetMvcDjango.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bdd_resto',
+        'NAME': 'bdd_resto_django',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
