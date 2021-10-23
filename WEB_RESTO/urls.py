@@ -4,5 +4,5 @@ from WEB_RESTO.views.detailResto import *
 
 urlpatterns = [
     path('Resto', listRestos, name='resto'),
-    path('Resto/Detail/<int:idR>', detailResto, name='detail'),
+    path('Resto/Detail/<int:id>', detailResto, name='detail'),
 ]

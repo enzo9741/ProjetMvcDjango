@@ -1,5 +1,44 @@
 {% include "./entete.html" %}
+{% load photos %}
 
-<p>{{ idR }}</p>
+<h1>{{ resto.nomR }}</h1>
+
+<span id="note">
+        <!-- Note -->
+</span>
+<section>
+    Cuisine <br>
+    {% include "./cuisineProposer.html" %}
+</section>
+<p id="principal">
+    {{ resto.descR }}
+</p>
+
+<h2 id="adresse">Adresse</h2>
+<p>
+    {% include "./restaurantInfo.html" %}
+    <br />Coordonées GPS :
+    {{ resto.latitudeDegR }}
+    {{ resto.longitudeDegR}}
+</p>
+
+<h2 id="photos">Photos</h2>
+<ul id="galerie">
+    {% getPhotosByIdR resto.idR lesPhotos as photos %}
+    {% for photo in photos %}
+        <img src="/static/WEB_RESTO/photos/{{ photo.cheminP }}/">
+
+    {% endfor %}
+ <!-- Photos -->
+</ul>
+
+<h2 id="horaires">Horaires</h2>
+{{ resto.horairesR|safe }}
+
+<h2 id="critiques">Critiques</h2>
+<ul id="critiques">
+ <!-- Critiques -->
+</ul>
 
 {% include "./pied.html" %}
+

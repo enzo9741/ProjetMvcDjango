@@ -1,0 +1,5 @@
+{% load proposer %}
+{% getProposerByIdR resto.idR proposer as cuisineProposer %}
+    {% for propos in cuisineProposer %}
+        <li class='tag'><span class='tag'>#</span> {{ propos.idTC }}</li>
+    {% endfor %}
