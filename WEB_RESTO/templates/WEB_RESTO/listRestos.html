@@ -1,5 +1,6 @@
 {% load static %}
 {% load photos %}
+{% load proposer %}
 
 {% static "WEB_RESTO/photos/" as photosUrl %}
 
@@ -12,11 +13,15 @@
         </div>
         <div class="descrCard">
             <a href="/WEB_RESTO/Resto/Detail/{{ resto.idR }}">{{ resto.nomR  }}</a>
+            <br>
             {% include "./restaurantInfo.html" %}
         </div>
         <div class="tagCard">
             <ul id="tagFood">
-                {% include "./cuisineProposer.html" %}
+                {% getProposerByIdR resto.idR proposer as cuisineProposer %}
+                    {% for propos in cuisineProposer %}
+                        <li class='tag'><span class='tag'>#</span> {{ propos.idTC }}</li>
+                    {% endfor %}
             </ul>
         </div>
     </div>
